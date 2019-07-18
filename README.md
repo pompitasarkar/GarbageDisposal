@@ -47,8 +47,6 @@ and then run:
 npm run start:dev
 ```
 
-Good Luck! 
-
 ## Todo
 
 -   [ ] Project structure

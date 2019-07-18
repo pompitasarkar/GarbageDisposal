@@ -1,4 +1,4 @@
 module.exports = {
     mongoURI:
-        "mongodb://meghdadhadidi:meghdad123@ds247410.mlab.com:47410/herour"
+        "mongodb://pomsarkar:Pompitamlab1@ds147225.mlab.com:47225/mern-db"
 }
