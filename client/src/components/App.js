@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 // Actions
-import { appLoadingStart, appLoadingEnd } from "../actions/app";
-import GarbageDisposalMap from "./GarbageDisposalMap/GarbageDisposalMap";
-import UploadPicture from "./UploadPicture";
+import { appLoadingStart, appLoadingEnd } from '../actions/app';
+import GarbageDisposalMap from './GarbageDisposalMap/GarbageDisposalMap';
+import UploadPicture from './UploadPicture';
 
 class App extends Component {
   componentDidMount() {
@@ -13,11 +13,10 @@ class App extends Component {
 
   render() {
     const { loading, fetching, error } = this.props;
-    console.log('sddjgh')
 
     return (
       <div className="component-app">
-        {loading ? "Loading" : "Loaded"}
+        {loading ? 'Loading' : 'Loaded'}
         <GarbageDisposalMap />
         <UploadPicture />
       </div>
@@ -28,10 +27,10 @@ class App extends Component {
 const mapStateToProps = ({ app }) => ({
   loading: app.loading,
   fetching: app.fetching,
-  error: app.error
+  error: app.error,
 });
 
 export default connect(
   null,
-  { appLoadingStart, appLoadingEnd }
+  { appLoadingStart, appLoadingEnd },
 )(App);

@@ -1,3 +1,3 @@
 module.exports = {
-    autoRtlStyle: true
-}
+  autoRtlStyle: true,
+};

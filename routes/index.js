@@ -1,9 +1,9 @@
-import { Router } from "express"
-import items from "./api/items"
+import { Router } from 'express';
+import items from './api/items';
 
-const router = Router()
+const router = Router();
 
 // Using proper handler per service
-router.use("/items", items)
+router.use('/items', items);
 
-export default router
+export default router;

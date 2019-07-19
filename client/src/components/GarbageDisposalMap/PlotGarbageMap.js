@@ -1,16 +1,17 @@
-import * as React from "react";
-import { Component } from "react";
-import { LatLng, LatLngBounds } from "leaflet";
-import { Map, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import * as React from 'react';
+import { LatLng, LatLngBounds } from 'leaflet';
+import {
+  Map, TileLayer, CircleMarker, Popup,
+} from 'react-leaflet';
 
-export default class Editor extends Component {
+export default class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       lat: 51.505,
       lng: -0.09,
       zoom: 6,
-      markers: []
+      markers: [],
     };
     this.allMarkers = null;
     this.mapRef = React.createRef();
@@ -18,24 +19,34 @@ export default class Editor extends Component {
   }
 
   generateMarkers(count, bounds) {
-    const minLat = bounds.getSouthWest().lat,
-      rangeLng = bounds.getNorthEast().lat - minLat,
-      minLng = bounds.getSouthWest().lng,
-      rangeLat = bounds.getNorthEast().lng - minLng;
+    const minLat = bounds.getSouthWest().lat;
+
+
+    const rangeLng = bounds.getNorthEast().lat - minLat;
+
+
+    const minLng = bounds.getSouthWest().lng;
+
+
+    const rangeLat = bounds.getNorthEast().lng - minLng;
 
     const result = Array.from({ length: count }, (v, k) => {
       return new LatLng(
         minLat + Math.random() * rangeLng,
-        minLng + Math.random() * rangeLat
+        minLng + Math.random() * rangeLat,
       );
     });
     return result;
   }
 
   componentDidMount() {
-    const southWest = new LatLng(30.0, -20.0),
-      northEast = new LatLng(60.0, 20.0),
-      bounds = new LatLngBounds(southWest, northEast);
+    const southWest = new LatLng(30.0, -20.0);
+
+
+    const northEast = new LatLng(60.0, 20.0);
+
+
+    const bounds = new LatLngBounds(southWest, northEast);
     this.allMarkers = this.generateMarkers(20000, bounds);
     this.displayMarkers();
   }
@@ -45,7 +56,7 @@ export default class Editor extends Component {
     const markers = this.allMarkers.filter(m => map.getBounds().contains(m));
     console.log(this.allMarkers);
     this.setState({
-      markers: markers
+      markers,
     });
   }
 

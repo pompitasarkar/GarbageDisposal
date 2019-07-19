@@ -1,14 +1,15 @@
-const globalConfig = require("./global.config")
-const rtl = require("postcss-rtl")
+/* eslint-disable */
+const rtl = require('postcss-rtl');
+const globalConfig = require('./global.config');
 
-var postCssConfig = {
-    plugins: [require("precss"), require("autoprefixer")]
-}
+const postCssConfig = {
+  plugins: [require('precss'), require('autoprefixer')],
+};
 
 console.log(globalConfig.autoRtlStyle);
 
 if (globalConfig.autoRtlStyle) {
-    postCssConfig.plugins.unshift(rtl);
+  postCssConfig.plugins.unshift(rtl);
 }
 
-module.exports = postCssConfig
+module.exports = postCssConfig;
