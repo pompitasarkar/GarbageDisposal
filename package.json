@@ -5,13 +5,9 @@
     "main": "server.js",
     "scripts": {
         "babel-node": "babel-node ./server.js",
-        "start:dev": "concurrently \"npm run server\" \"cd client && SET \"NODE_ENV=development\"  && npm start\"",
+        "start:dev": "concurrently \"npm run server\" \"cd client && npm start\"",
         "start:prod": "concurrently \"npm run server\" \"cd client && SET \"NODE_ENV=production\" && npm run build\"",
         "server": "nodemon --exec \"npm run babel-node\""
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/MeghdadHadidi/mern-stack-boilerplate.git"
     },
     "keywords": [
         "MERNStack",
@@ -21,12 +17,8 @@
         "Node.js",
         "Boilerplate"
     ],
-    "author": "Meghdad Hadidi",
+    "author": "Pompita Sarkar",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/MeghdadHadidi/mern-stack-boilerplate/issues"
-    },
-    "homepage": "https://github.com/MeghdadHadidi/mern-stack-boilerplate#README",
     "devDependencies": {
         "@babel/cli": "^7.1.2",
         "@babel/core": "^7.1.2",

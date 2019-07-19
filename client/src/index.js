@@ -16,7 +16,7 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("app")
+  document.getElementById("root")
 );
 
 if (module.hot && process.env.NODE_ENV === "development") {

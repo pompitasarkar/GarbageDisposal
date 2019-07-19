@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 // Actions
 import { appLoadingStart, appLoadingEnd } from "../actions/app";
+import GarbageDisposalMap from "../components/GarbageDisposalMap/GarbageDisposalMap";
 
 class App extends Component {
   componentDidMount() {
@@ -11,12 +12,12 @@ class App extends Component {
 
   render() {
     const { loading, fetching, error } = this.props;
+    console.log('sddjgh')
 
     return (
-      <div>
+      <div className="component-app">
         {loading ? "Loading" : "Loaded"}
-        <h2>!MERN Stack Boilerplate!</h2>
-        <p>The set up is finished successfuly!</p>
+        <GarbageDisposalMap />
       </div>
     );
   }
@@ -29,6 +30,6 @@ const mapStateToProps = ({ app }) => ({
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   { appLoadingStart, appLoadingEnd }
 )(App);

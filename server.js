@@ -49,11 +49,11 @@ app.use(bodyParser.json())
 // DB Config
 const db = keys.mongoURI
 
-// Connect to MongoDB
-mongoose
-    .connect(db)
-    .then(() => log(chalk.blueBright("MongoDB Connected...")))
-    .catch(err => log(chalk.red(err)))
+// // Connect to MongoDB
+// mongoose
+//     .connect(db)
+//     .then(() => log(chalk.blueBright("MongoDB Connected...")))
+//     .catch(err => log(chalk.red(err)))
 
 // Use Routes
 app.use("/api", routes)
