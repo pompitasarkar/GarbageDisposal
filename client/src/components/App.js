@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 
 // Actions
 import { appLoadingStart, appLoadingEnd } from "../actions/app";
-import GarbageDisposalMap from "../components/GarbageDisposalMap/GarbageDisposalMap";
+import GarbageDisposalMap from "./GarbageDisposalMap/GarbageDisposalMap";
+import UploadPicture from "./UploadPicture";
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class App extends Component {
       <div className="component-app">
         {loading ? "Loading" : "Loaded"}
         <GarbageDisposalMap />
+        <UploadPicture />
       </div>
     );
   }
