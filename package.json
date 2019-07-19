@@ -3,6 +3,10 @@
     "version": "0.0.1",
     "description": "MERN Stack Boilerplate (MongoDB, Express.js, React, Node.js)",
     "main": "server.js",
+    "engines": {
+      "npm": "6.9.0",
+      "node": "10.16.0"
+    },
     "scripts": {
         "babel-node": "babel-node ./server.js",
         "start:dev": "concurrently \"npm run server\" \"cd client && npm start\"",
