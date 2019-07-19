@@ -1,65 +1,34 @@
-import express from "express"
-import keys from "./config/keys"
-import mongoose from "mongoose"
-import bodyParser from "body-parser"
-import { log } from "console"
+import express from 'express'
+import keys from './config/keys'
+import mongo from 'mongodb'
+let collection = '';
+const app = express();
+const url = keys.mongoURI;
+const serverPort = keys.port;
 
-// Chalk for colorful logs
-import chalk from "chalk"
+//Start server on Port 7000
+app.listen(serverPort, () => {
+ console.log(`Server started on port`, serverPort);
+});
 
-// Routes handler
-import routes from "./routes"
+mongo.connect(url, { useNewUrlParser: true }, function(err, client) {
+  const db = client.db('dbWaste');
+  collection = db.collection('pinDetails');
+});
 
-const app = express()
-
-// Webpack
-// import webpack from "webpack"
-// import webpackConfig from "./client/config/webpack.config"
-// import WebpackHotMiddleware from "webpack-hot-middleware"
-// import WebpackDevMiddleware from "webpack-dev-middleware"
-
-// webpackConfig.entry["server"] = "webpack/hot/dev-server"
-// webpackConfig.entry["client"] = "webpack-hot-middleware/client"
-// webpackConfig.output["path"] = "/"
-// const compiler = webpack(webpackConfig)
-
-// app.use(
-//     WebpackDevMiddleware(compiler, {
-//         hot: true,
-//         publicPath: webpackConfig.output.publicPath,
-//         stats: {
-//             colors: true
-//         },
-//         noInfo: true,
-//         historyApiFallback: true
-//     })
-// )
-
-// app.use(
-//     WebpackHotMiddleware(compiler, {
-//         log: console.log
-//     })
-// )
-
-app.use(express.static("./client/src"))
-
-// Body Parser
-app.use(bodyParser.json())
-
-// DB Config
-const db = keys.mongoURI
-
-// // Connect to MongoDB
-// mongoose
-//     .connect(db)
-//     .then(() => log(chalk.blueBright("MongoDB Connected...")))
-//     .catch(err => log(chalk.red(err)))
-
-// Use Routes
-app.use("/api", routes)
-
-const port = process.env.PORT || 5000
-
-app.listen(port, () =>
-    log(chalk.greenBright(`Server started on port: ${port}`))
-)
+app.get('/api/item/:code', async (req, res) => {
+  const code = req.params.code;
+  console.log('code is '+code);
+  if (code == 'insert') {
+    collection.insertOne(
+      {firstname : 'sample firstname',lastname: 'sample lastname',emailid: 'sample@email.com'}
+      , function(err, result) {
+      },
+    );
+    res.send('item saved to db');
+    // return res.redirect('inserted');
+  } else {
+    res.send('404 Error Occured');
+    // return res.redirect('error');
+  }
+});
