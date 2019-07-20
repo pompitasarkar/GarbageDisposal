@@ -4,6 +4,7 @@ import {
 } from 'react-leaflet';
 import { LatLng, LatLngBounds, Icon } from 'leaflet';
 import LocateControl from './LocateControl';
+import {  iconPerson  } from './Icons';
 
 class GarbageDisposalMap extends React.Component {
   constructor(props) {
@@ -26,15 +27,6 @@ class GarbageDisposalMap extends React.Component {
       },
       onActivate: () => {}, // callback before engine starts retrieving locations
     };
-    const myIcon = new Icon({
-      iconUrl: 'my-icon.png',
-      iconSize: [38, 95],
-      iconAnchor: [22, 94],
-      popupAnchor: [-3, -76],
-      shadowUrl: 'my-icon-shadow.png',
-      shadowSize: [68, 95],
-      shadowAnchor: [22, 94],
-    });
     const binPoints = [
       {
         lat: 12.947362445113066,
@@ -76,7 +68,7 @@ class GarbageDisposalMap extends React.Component {
             const position = [value.lat, value.lng];
             console.log(position);
             return (
-              <Marker key={index} position={position} draggable>
+              <Marker key={index} position={position} draggable={true} icon={iconPerson}>
                 <Popup>
                   Current location:
                   {' '}

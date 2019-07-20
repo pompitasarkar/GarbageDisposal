@@ -62,6 +62,17 @@ const modules = {
         'sass-loader',
       ],
     },
+    {
+      test: /\.png$/,
+      use: [{
+        loader: 'file-loader',
+        options: {
+          limit: 1000,
+          mimetype: 'image/png',
+          name: '../resources/images/sprite/[name].[ext]',
+        }
+      }],
+    }
   ],
 };
 
