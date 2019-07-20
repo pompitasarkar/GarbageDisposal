@@ -10,6 +10,7 @@
     "build": "rimraf dist && SET \"NODE_ENV=production\" && webpack --mode=production --config ./config/webpack.config.js"
   },
   "dependencies": {
+    "jquery": "^3.4.1",
     "leaflet": "^1.5.1",
     "leaflet.locatecontrol": "^0.67.0",
     "react": "^16.0.0",

@@ -39,6 +39,7 @@
       "no-unused-vars": "warn",
       "react/no-array-index-key": "warn",
       "react/no-unused-state": "warn",
+      "react/destructuring-assignment": "off"
     }
   }
   
