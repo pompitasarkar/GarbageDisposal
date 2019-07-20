@@ -1,4 +1,5 @@
 module.exports = {
-  mongoURI:
-        'mongodb://pomsarkar:Pompitamlab1@ds147225.mlab.com:47225/mern-db',
+  mongoURI: 'mongodb://localhost:27017/',
+  port: 7000,
+  dbName: 'dbWaste',
 };

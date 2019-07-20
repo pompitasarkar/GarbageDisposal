@@ -5,25 +5,25 @@ import keys from './config/keys';
 
 let collection = '';
 const app = express();
-const url = keys.mongoURI;
-const serverPort = keys.port;
+const { mongoURI } = keys;
+const { port } = keys;
 const { dbName } = keys;
 
 // Start server on Port 7000
-app.listen(serverPort, () => {
-  console.log(`Server listens on port: ${serverPort}`);
+app.listen(port, () => {
+  console.log(`Server started on port`, port);
 });
 
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 app.use(bodyParser.json());
 
-mongo.MongoClient.connect(url + dbName, { useNewUrlParser: true }, (err, db) => {
+mongo.MongoClient.connect(mongoURI + dbName, { useNewUrlParser: true }, (err, db) => {
   if (err) throw err;
   console.log('db initialized !!!');
   db.close();
 });
 
-mongo.connect(url, { useNewUrlParser: true }, (err, client) => {
+mongo.connect(mongoURI, { useNewUrlParser: true }, (err, client) => {
   const db = client.db(dbName);
   collection = db.collection('pinDetails');
 });
